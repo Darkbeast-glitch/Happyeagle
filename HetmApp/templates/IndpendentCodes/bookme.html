@@ -1,0 +1,118 @@
+{% load static%}
+
+
+<!-- Booking Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="booking p-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-6 text-white">
+                    <h6 class="text-white text-uppercase">Booking</h6>
+                    <h1 class="text-white mb-4">Online Booking</h1>
+                    <p class="mb-4">Happy Eagle Tourism Management is delighted to have you here, ready to embark on a journey filled with endless possibilities. Whether you're planning a weekend getaway, a dream vacation, or a spontaneous escape, you're in the right place.
+                        Our booking is designed with one goal in mind: </p>
+                    <p class="mb-4">to make your travel dreams a reality. It's where your journey begins, where you turn your itch for travel into concrete plans, and where you take that first step towards unforgettable experiences.
+                        Unlock Your Next Adventure: Book Now and Wander Where Your Heart Desires!</p>
+                    <!-- <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a> -->
+                </div>
+                <div class="col-md-6">
+                    <h1 class="text-white mb-4">Book A Tour</h1>
+                    <form action="https://hooks.airtable.com/workflows/v1/genericWebhook/appyuKokIsUjlynJ6/wfluAfDbGLLTB13q4/wtrDiTc6SoRlM3oRW" method="POST" >
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control   light  "  style="border-radius: 20;" id="firstname" name="firstname" placeholder="Your Full Name">
+                                    <label for="firstname">First Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control   light  " id="lastname" name="lastname" placeholder="Your Full Name">
+                                    <label for="lastname">Last Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="age" class="form-control  light " name="age" id="age" placeholder="Your age">
+                                    <label for="age">Age</label>
+                                </div>
+
+                                
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="nationality" class="form-control  light" name="nationality" id="nationality" placeholder="Your nationality">
+                                    <label for="nationality">Nationality</label>
+                                </div>
+
+                                
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control  light " id="reservationdate" name="reservationdate" placeholder="Your Reservation date">
+                                    <label for="reservationdate">Reservation Date</label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control light " id="phonenumber" name="phonenumber " placeholder="Your  Phone number ">
+                                    <label for="phone number">Phone number</label>
+                                </div>
+                            </div>
+                            
+
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control light" name="email" id="email" placeholder="Your email">
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            
+
+
+                            <div class="col-md-12 ">
+                                <div class="form-floating">
+                                    <select class="form-select " name="tourpackages" id="select1">
+                                        {% for tour in tour_packs%}
+                                        <option value="{{tour.tour_place}}"> {{tour.tour_packages}} </option>
+
+
+                                        {% endfor%}
+                                        <!-- <option value="Wli ">Wli - 450</option>
+                                        <option value="Accra City Tour">Accra City Tour - ₵350</option>
+                                        <option value="Cape Coast Tours ">Cape Coast Tours - ₵1000</option>
+                                        <option value="South Africa Tours">South Africa Tours - ₵13,672</option>
+                                        <option value="Boti Falls">Boti Falls - ₵275.00</option>
+                                        <option value="Trip to Afadjato and Wli "> Trip to Afadjato and Wli - GH₵1,500.00 </option>
+                                        <option value="Trip to S.A and Namibia "> Trip to S.A and Namibia - GH₵17,179.00 </option> -->
+                                    </select>
+                                    <label for="select1">Tour Packages</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control light " placeholder="Special Request" name="addtionalrequest" id="message" style="height: 100px"></textarea>
+                                    <label for="addtionalrequest">Special Request</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-outline-light w-100 py-3" type="submit" >Book Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Booking Start -->
