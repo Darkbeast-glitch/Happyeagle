@@ -1,5 +1,5 @@
 from django.urls import path,include
-from HetmApp.views import HomepageView, BookingView,PackageView,AboutView,ContactView,SelectCurrency
+from HetmApp.views import HomepageView, BookingView,PackageView,AboutView,ContactView,SelectCurrency,SuccessPage
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -10,6 +10,7 @@ urlpatterns = [
     path('aboutus/', AboutView, name="about" ),
     path('contact/', ContactView, name="contact" ),
     path('selectcurrency/', SelectCurrency, name='selectcurrency'),
+    path('success/', SuccessPage, name='sucesss'),
 
     
 

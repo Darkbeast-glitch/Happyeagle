@@ -1,5 +1,12 @@
+
 {% load static%}
 
+
+{% load static%}
+{% load humanize %}
+{% load currency %}
+
+{% change_currency HomePackage.package_price CURRENCY.code %}
 
 <!-- Booking Start -->
 <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -80,7 +87,7 @@
                                 <div class="form-floating">
                                     <select class="form-select " name="tourpackages" id="select1">
                                         {% for tour in tour_packs%}
-                                        <option value="{{tour.tour_place}}"> {{tour.tour_packages}} </option>
+                                        <option value="{{tour.tour_place}}"> {{tour.tour_packages}} - {{request.session.currency}} {{tour.tour_price|currency:request.session.currency|intcomma}} </option>
 
 
                                         {% endfor%}

@@ -9,6 +9,7 @@ from currencies.models import Currency
 class TourPackages(models.Model):
     tour_packages = models.CharField(max_length=200, blank=True, null=True)    
     tour_place = models.CharField(max_length=200, blank=True, null=True)   
+    tour_price = models.CharField(max_length=200,blank=True, null=True) 
     
     def __str__(self):
         return self.tour_packages
