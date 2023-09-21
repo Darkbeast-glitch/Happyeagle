@@ -10,6 +10,7 @@ urlpatterns = [
     path('aboutus/', AboutView, name="about" ),
     path('contact/', ContactView, name="contact" ),
     path('selectcurrency/', SelectCurrency, name='selectcurrency'),
+
     
 
 ]

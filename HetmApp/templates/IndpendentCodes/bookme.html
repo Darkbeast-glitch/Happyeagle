@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-md-6">
                     <h1 class="text-white mb-4">Book A Tour</h1>
-                    <form action="https://hooks.airtable.com/workflows/v1/genericWebhook/appyuKokIsUjlynJ6/wfluAfDbGLLTB13q4/wtrDiTc6SoRlM3oRW" method="POST" >
+                    <form action="" method="POST" id="myForm">
                         {% csrf_token %}
                         <div class="row g-3">
                             <div class="col-md-6">
@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="age" class="form-control  light " name="age" id="age" placeholder="Your age">
+                                    <input type="number" class="form-control  light " name="age" id="age" placeholder="Your age">
                                     <label for="age">Age</label>
                                 </div>
 
@@ -61,7 +61,7 @@
                             
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control light " id="phonenumber" name="phonenumber " placeholder="Your  Phone number ">
+                                    <input type="text" class="form-control light " id="phonenumber" name="phonenumber" placeholder="Your  Phone number ">
                                     <label for="phone number">Phone number</label>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control light " placeholder="Special Request" name="addtionalrequest" id="message" style="height: 100px"></textarea>
+                                    <textarea class="form-control light " placeholder="Special Request" name="addtionalrequest" id="addtionalrequest" style="height: 100px"></textarea>
                                     <label for="addtionalrequest">Special Request</label>
                                 </div>
                             </div>
@@ -112,6 +112,7 @@
     </div>
 </div>
 
+  
 
 
 

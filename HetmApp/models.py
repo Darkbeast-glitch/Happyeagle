@@ -37,7 +37,7 @@ class HomePackages(models.Model):
     
     currency = models.ForeignKey(
         Currency, on_delete=models.CASCADE, null=True, blank=True)
-    package_short_description = models.TextField()
+    package_short_description = models.TextField(blank=True, null=True)
     
     class Meta:
         ordering = ['-date_added']
@@ -77,7 +77,8 @@ class MainPackageView(models.Model):
     
     currency = models.ForeignKey(
         Currency, on_delete=models.CASCADE, null=True, blank=True)
-    package_short_description = models.TextField()
+    package_short_description = models.TextField(blank=True, null=True)
+    
     
     class Meta:
         ordering = ['-date_added']
@@ -89,5 +90,28 @@ class MainPackageView(models.Model):
     def __str__(self):
         return self.package_name
     
-    
+   
+
         
+class Bookings(models.Model):
+    first_name = models.CharField(max_length=200, blank=True, null=True)
+    last_name = models.CharField(max_length=200, blank=True, null=True)
+    age = models.CharField(max_length=2, blank=True, null=True)
+    nationality = models.CharField(max_length=200, blank=True, null=True)
+    reserveation_date =  models.DateField( auto_now_add=True, blank=True, null=True)
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
+    email = models.EmailField()
+    tour_package = models.CharField(max_length=200, blank=True, null=True)
+    additional_request  = models.TextField()
+    
+    class Meta:
+        verbose_name = 'Bookings'
+        verbose_name_plural = 'Booking'
+        
+   
+    
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+    
+  
