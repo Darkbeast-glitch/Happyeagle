@@ -444,3 +444,13 @@
 }
 
 
+
+
+/* HENRY CODES */
+
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Optional: Centers vertically as well, adjusts the container's height according to the viewport height */
+}

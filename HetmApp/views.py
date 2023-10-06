@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,HttpResponseRedirect
-from HetmApp.models import MainPackageView,TourPackages, HomePackages
+from HetmApp.models import MainPackageView,TourPackages, HomePackages,Bookings,PackageCategory  
 from django.conf import settings
 import os
 from pyairtable import Api
@@ -25,7 +25,9 @@ def HomepageView(request):
     return render(request, 'index.html', context)
 
 
+# newbooking view
 
+# old BookignView
 def BookingView(request):
     if not request.session.has_key('currency'):
         request.session['currency'] = settings.DEFAULT_CURRENCY
@@ -43,6 +45,8 @@ def BookingView(request):
         email = request.POST.get('email')
         tour_packages = request.POST.get('tourpackages')
         additional_request = request.POST.get('addtionalrequest')
+        
+        
 
         # Initialize the Airtable API using your API key
         api = Api(os.environ['AIRTABLE_API_KEY'])
@@ -74,7 +78,7 @@ def BookingView(request):
         
 
         # Redirect to a thank you page or any other desired page
-        return redirect('contact')  # Replace 'thank_you' with the URL name of your thank you page
+        return redirect('success')  # Replace 'thank_you' with the URL name of your thank you page
     
     
     context = {
@@ -87,20 +91,50 @@ def BookingView(request):
     return render(request, 'booking.html', context)
     
     
-
-
-
+    
+    
+# package view
+    
+    
 def PackageView(request):
     if not request.session.has_key('currency'):
         request.session['currency'] = settings.DEFAULT_CURRENCY
-    package = MainPackageView.objects.all()
+    
+    # Get the selected category ID from the URL parameters
+    category_id = request.GET.get('category')
+    
+    # Fetch all packages if no category is selected
+    if category_id:
+        # Filter packages based on the selected category
+        packages = MainPackageView.objects.filter(category__id=category_id)
+    else:
+        # If no category is selected, display all packages
+        packages = MainPackageView.objects.all()
+    
+    # Fetch all categories to populate the filter dropdown
+    categories = PackageCategory.objects.all()
     
     context = {
-        
-        'package': package
+        'packages': packages,
+        'categories': categories,
     }
     
     return render(request, 'package.html', context)
+
+
+# def PackageView(request):
+#     if not request.session.has_key('currency'):
+#         request.session['currency'] = settings.DEFAULT_CURRENCY
+    
+#     packages = MainPackageView.objects.all()
+#     categories = PackageCategory.objects.all()  # Fetch all categories from the database
+    
+#     context = {
+#         'packages': packages,
+#         'categories': categories,  # Include categories in the context
+#     }
+    
+#     return render(request, 'package.html', context)
 
 
 def AboutView(request):
@@ -134,11 +168,17 @@ def SelectCurrency(request):
 
 
 def SuccessPage(request):
-    context = {}
+    booking_data = Bookings.objects.first()  # Fetch the first booking as an example
+    context = {
+        'booking_data': booking_data
+    }
     return render(request, 'success.html', context)
     
 
 
 
 
+def GalleryPage(request):
+    context = {}
+    return render(request, 'gallery.html', context)
 

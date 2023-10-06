@@ -1,21 +1,97 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
+{% load static %}
 
-
-{% block content%}
+{% block content %}
 <div class="container pt-5">
-  
-<div class="jumbotron text-center">
-  <h1 class="display-3">Thank You!</h1>
-  <p class="lead"><strong>Please check your email</strong> for further instructions on how to complete your account setup.</p>
-  <hr>
-  <p>
-    Having trouble? <a href="https://bootstrapcreative.com/">Contact us</a>
-  </p>
-  <p class="lead">
-    <a class="btn btn-primary btn-sm" href="https://bootstrapcreative.com/" role="button">Continue to homepage</a>
-  </p>
+    <div class="jumbotron text-center">
+        <h1 class="display-3">Thank You!</h1>
+        <p class="lead"><strong>Please hold on,</strong> you will be redirected to make payment in just a moment. If you don't get redirected, click on the <strong>"Pay Now"</strong> button below.</p>
+        <hr>
+        <p>
+            Having trouble? <a href="{% url 'contact' %}">Contact us</a>
+        </p>
+        <form action="" id="paymentForm">
+          <p class="lead">
+            <button class="btn btn-primary  btn-sm" type="submit"  onclick="payWithPaystack()">Proceed to Payment <img src="{% static 'img/hand.png' %}" style="width:20px; color: white;" alt=""></button>
+        </p>
+        </form>
+    </div>
 </div>
-</div>
-  
-  
-{% endblock content%}
+
+<script>
+    // Function to redirect after 3 seconds
+    function redirectToPaymentPage() {
+        setTimeout(function () {
+            window.location.href = "https://paystack.com/pay/1f7h8bg44u";  // Replace with the URL of your payment page
+        }, 3000);  // 3 seconds
+    }
+
+    // Call the function to initiate the redirection
+    redirectToPaymentPage();
+</script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+
+<!-- <script>
+  const paymentForm = document.getElementById('paymentForm');
+  paymentForm.addEventListener("submit", payWithPaystack, false);
+
+  function payWithPaystack(e) {
+    e.preventDefault();
+
+    // Access the data from the context passed by the view
+    const bookingData = JSON.parse('{{ booking_data|safe }}');
+
+    let handler = PaystackPop.setup({
+      key: 'pk_test_3cda477e345b5ad9438d83fd5e51f38405e018ca', // Replace with your public key
+      email: bookingData.email, // Use the email from the context
+      amount: bookingData.amount * 100, // Use the amount from the context (assuming it's in the correct currency)
+      currency: "GHS",
+      ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+      onClose: function () {
+        alert('Window closed.');
+      },
+      callback: function (response) {
+        let message = 'Payment complete! Reference: ' + response.reference;
+        alert(message);
+      }
+    });
+
+    handler.openIframe();
+  }
+</script> -->
+<!-- 
+<script>
+  const paymentForm = document.getElementById('paymentForm');
+paymentForm.addEventListener("submit", payWithPaystack, false);
+
+function payWithPaystack(e) {
+e.preventDefault();
+
+
+
+let handler = PaystackPop.setup({
+  key: 'pk_test_3cda477e345b5ad9438d83fd5e51f38405e018ca', // Replace with your public key
+  email:"bbjulius900@gmail.com",
+  amount: 200 * 100,
+  currency:"GHS",
+  ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+  // label: "Optional string that replaces customer email"
+  onClose: function(){
+    alert('Window closed.');
+  },
+  callback: function(response){
+    let message = 'Payment complete! Reference: ' + response.reference;
+    alert(message);
+  }
+});
+
+handler.openIframe();
+}
+
+
+</script>
+<script src="https://js.paystack.co/v1/inline.js"></script> -->
+
+
+{% endblock content %}

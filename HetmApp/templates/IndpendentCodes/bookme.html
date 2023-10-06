@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-6">
                     <h1 class="text-white mb-4">Book A Tour</h1>
-                    <form action="" method="POST" id="myForm">
+                    <form action="" method="POST" id="paymentForm">
                         {% csrf_token %}
                         <div class="row g-3">
                             <div class="col-md-6">
@@ -85,7 +85,7 @@
 
                             <div class="col-md-12 ">
                                 <div class="form-floating">
-                                    <select class="form-select " name="tourpackages" id="select1">
+                                    <select class="form-select " name="tourpackages" id="packageSelect">
                                         {% for tour in tour_packs%}
                                         <option value="{{tour.tour_place}}"> {{tour.tour_packages}} - {{request.session.currency}} {{tour.tour_price|currency:request.session.currency|intcomma}} </option>
 
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-outline-light w-100 py-3" type="submit" >Book Now</button>
+                                <button class="btn btn-outline-light w-100 py-3" id="submitBtn" type="submit" onclick="payWithPaystack()" >Book & Pay <img src="{% static 'img/hand.png'%}"  style="width:30px" alt=""></button>
                             </div>
                         </div>
                     </form>
@@ -119,7 +119,11 @@
     </div>
 </div>
 
-  
+>
+
+
+
+
 
 
 
