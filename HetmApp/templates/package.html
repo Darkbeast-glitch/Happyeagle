@@ -89,7 +89,7 @@
                 <a href="/" class="nav-item nav-link ">Home</a>
                 <a href="{% url 'about'%}" class="nav-item nav-link">About</a>
                 <a href="{% url 'packages'%}" class="nav-item nav-link active">Packages</a>
-                <a href="service.html" class="nav-item nav-link">Gallery</a>
+                <a href="{% url 'gallery'%}" class="nav-item nav-link">Gallery</a>
 
                 <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -135,8 +135,23 @@
                 <h1 class="mb-5">All Packages</h1>
             </div>
             <div class="row g-4 justify-content-center">
+                <!-- filter form  -->
+                <form method="get" class="form-control" action="{% url 'packages' %}" >
+                    <label for="category">Select Category:</label>
+                    <select name="category" id="category">
+                        <option value="" class=" form-control" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">All Categories</option>
+                        {% for category in categories %}
+                            <option value="{{ category.id }}" {% if category.id == selected_category_id %}selected{% endif %}>
+                                {{ category.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-secondary" style="height: max-content; text-align: center; border-radius: 20px;">Filter</button>
+                </form>
 
-                {% for packs in package%}
+                
+                {% for packs in packages%}
+                
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="package-item">
                         <div class="overflow-hidden">
@@ -181,7 +196,13 @@
 
 
                 {% endfor%}
-                <a href="{% url 'packages'%}" class="btn btn-sm btn-primary px-3" style="border-radius:30px; width: max-content;">More Packages</a>
+                <div class="text-center">
+                    <a href="{% url 'packages' %}" class="btn btn-sm btn-primary px-4 py-2" style="border-radius: 20px; white-space: nowrap;">More Packages</a>
+                </div>
+                
+
+
+                <!-- <a href="{% url 'packages'%}" class="btn btn-sm btn-primary px-3" style="border-radius:30px; width: fit-content;">More Packages</a> -->
 
                 
 
