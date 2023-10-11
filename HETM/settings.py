@@ -107,7 +107,7 @@ DATABASES = {
     }
 }
 
-AIRTABLE_API_KEY = config('AIRTABLE_API_KEY')
+# AIRTABLE_API_KEY = config('AIRTABLE_API_KEY')
 
 
 
