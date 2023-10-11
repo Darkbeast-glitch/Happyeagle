@@ -1,7 +1,7 @@
 /********** Template CSS **********/
 :root {
-    --primary: #0B6623; 
-    --secondary:#FE8800;
+    --primary: #86B817;
+    --secondary: #FE8800;
     --light: #F5F5F5;
     --dark: #14141F;
 }
@@ -36,7 +36,6 @@
     visibility: visible;
     opacity: 1;
 }
-
 
 
 /*** Button ***/
@@ -189,7 +188,7 @@
     position: relative;
     display: inline-block;
     text-transform: uppercase;
-    }
+}
 
 .section-title::before {
     position: absolute;
@@ -441,16 +440,4 @@
     margin-right: 0;
     padding-right: 0;
     border-right: none;
-}
-
-
-
-
-/* HENRY CODES */
-
-.text-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Optional: Centers vertically as well, adjusts the container's height according to the viewport height */
 }
