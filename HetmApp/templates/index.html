@@ -10,6 +10,7 @@
 {% block content%}
 
 
+
 <body>
    
 
@@ -55,7 +56,7 @@
                     <a href="/" class="nav-item nav-link active">Home</a>
                     <a href="{% url 'about'%}" class="nav-item nav-link">About</a>
                     <a href="{% url 'packages'%}" class="nav-item nav-link">Packages</a>
-                    <a href="service.html" class="nav-item nav-link">Gallery</a>
+                    <a href="{% url 'gallery'%}" class="nav-item nav-link">Gallery</a>
 
                     <!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -79,10 +80,10 @@
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
                         <h1 class="display-3 text-white mb-3 animated slideInDown text-shadow-drop-top">Happy Eagle Tourism Management</h1>
                         <p class="fs-4 text-white mb-4 animated slideInDown">Enjoy your vacation with us</p>
-                        <div class="position-relative w-75 mx-auto animated slideInDown">
-                            <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Cape Coast">
-                            <button type="button" class="btn btn-secondary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
-                        </div>
+                            <!-- <div class="position-relative w-75 mx-auto animated slideInDown">
+                                <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Cape Coast">
+                                <button type="button" class="btn btn-secondary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
+                            </div> -->
                     </div>
                 </div>
             </div>
@@ -150,7 +151,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-secondary mb-4"></i>
                             <h5>Excursions</h5>
-                            <p>Explore the beauty of our diverse nation with our carefully crafted tours.
+                            <p>Discover the world's wonders, one unforgettable excursion at a time, with our meticulously crafted packages that turn dreams into reality
                             </p>
                         </div>
                     </div>
@@ -158,9 +159,12 @@
                 <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-hotel text-secondary mb-4"></i>
+                            <!-- <i class="fa-solid fa-route"></i> -->
+                            <!-- <i class="fa fa-3x fa-home text-secondary mb-4"></i> -->
+                            <i class="fa fa-3x fa-suitcase text-secondary mb-4"></i>
+
                             <h5>Tourism Consultants</h5>
-                            <p>Book your accommodations hassle-free with our wide range of hotel options.
+                            <p>Book your accommodations hassle-free with our wide range of hotel options.Let us be your compass in the world of wanderlust.
                             </p>
                         </div>
                     </div>
@@ -168,9 +172,10 @@
                 <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-user text-secondary mb-4"></i>
+                            <!-- <i class="fa fa-3x fa-user text-secondary mb-4"></i> -->
+                            <i class="fa fa-3x fa-calendar text-secondary mb-4"></i>
                             <h5>Travel Planning</h5>
-                            <p>Discover insider tips and local secrets with our expert travel guides.
+                            <p>Elevate your travel experience with our bespoke planning packages, where we turn your dreams into meticulously crafted journeys.
                             </p>
                         </div>
                     </div>
@@ -178,9 +183,9 @@
                 <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-cog text-secondary mb-4"></i>
+                            <i class="fa fa-3x fa-compass text-secondary mb-4"></i>
                             <h5>Tour Guiding</h5>
-                            <p>Let us handle the details of your special events for a stress-free experience.</p>
+                            <p>Unlock the hidden gems of every destination with our expert guides, your passport to unforgettable adventures and authentic experiences around the globe.                                 .</p>
                         </div>
                     </div>
                 </div>
@@ -188,9 +193,12 @@
                 <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
-                            <i class="fa fa-3x fa-cog text-secondary mb-4"></i>
+                            <!-- <i class="fa fa-3x fa-cog text-secondary mb-4"></i> -->
+                            <i class="fa fa-3x fa-key text-secondary mb-4"></i>
+
                             <h5>Concierge Services</h5>
-                            <p>Let us handle the details of your special events for a stress-free experience.</p>
+                            <p>Elevate your stay to a new level of luxury and convenience with our bespoke concierge services packages, where your every desire is our top priority
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -198,9 +206,11 @@
                 <div class="col-lg-4 col-sm-6 wow fadeInUp"  data-wow-delay="0.7s">
                     <div class="service-item rounded pt-3" >
                         <div class="p-4">
-                            <i class="fa fa-3x fa-cog text-secondary mb-4"></i>
+                            <!-- <i class="fa fa-3x fa-cog text-secondary mb-4"></i> -->
+                            <i class="fa fa-3x fa-calendar-check text-secondary mb-4"></i>
+
                             <h5>Tourism & Event Planning </h5>
-                            <p>Let us handle the details of your special events for a stress-free experience.</p>
+                            <p>Elevate your stay to a new level of luxury and convenience with our bespoke concierge services packages, where your every desire is our top priority                                .</p>
                         </div>
                     </div>
                 </div>
@@ -394,28 +404,30 @@
             </div>
             <div class="owl-carousel testimonial-carousel position-relative">
                 <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/testimonial-1.jpg' %}" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/goodword1.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Simply Jaade</h5>
+                    <p>Brampton, Canada</p>
+                    <p class="mb-0">Amazing tour guide!
+                        Bless was a great tour guide! Part of my trip was solo and she made sure she was consistently present to show me everything from markets, clubs and hair stylists. Bless’s talks were very informative for every location we went to! I would definitely recommend Bless for your tour</p>
                 </div>
                 <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/testimonial-2.jpg' %}" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/goodword2.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Ange </h5>
+                    <p>Chicago, IL</p>
+                    <p class="mt-2 mb-0">went on a tour visiting various historical and cultural sites with you and was made to feel very welcomed, almost like family. The staff was extremely professional and well knowledgeable about the various sites and their respective links to American history. Being able to hear a different narrative, directly from the</p>
                 </div>
                 <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/testimonial-3.jpg' %}" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/goodword3.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Stella</h5>
+                    <p>Atlanta Georgia</p>
+                    <p class="mt-2 mb-0">I went on a tour with you guys on Mount Gemi in Amedzope and I had an awesome time with when you visited Ghana again after a long while.The staff were so patient and very polite and the tour guide was so professional and knowledgeable. I’d definitely recommend you guys to everyone and the next time I come.</p>
                 </div>
                 <div class="testimonial-item bg-white text-center border p-4">
-                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/testimonial-4.jpg' %}" style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">John Doe</h5>
-                    <p>New York, USA</p>
-                    <p class="mt-2 mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="{% static 'img/Laju.jpeg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Samuel </h5>
+                    <p>Ghana Accra</p>
+                    <p class="mt-2 mb-0">I went on a tour with you guys on Mount Gemi in Amedzope and I had an awesome time with when you visited Ghana again after a long while.The staff were so patient and very polite and the tour guide was so professional and knowledgeable. I’d definitely recommend you guys to everyone and the next time I come.</p>
+
                 </div>
             </div>
         </div>
