@@ -107,7 +107,8 @@ DATABASES = {
     }
 }
 
-# AIRTABLE_API_KEY = config('AIRTABLE_API_KEY')
+air_key = "patJ44IN8XVtPFsYx.f067976408bb791ded3b7ecfaa5b747d509507a42dd5dfb4c08eb090c03856ac"
+AIRTABLE_API_KEY = config('AIRTABLE_API_KEY', default=air_key)
 
 
 

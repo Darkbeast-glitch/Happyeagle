@@ -125,3 +125,18 @@ class Bookings(models.Model):
         return f"{self.first_name} {self.last_name}"
 
     
+    
+    
+    
+class Gallery(models.Model):
+        image = models.ImageField(upload_to="images/gallaries")
+        
+        class Meta:
+            verbose_name = 'Gallery'
+            verbose_name_plural = 'Galleries'
+            
+   
+    
+        def __str__(self):
+            return f"{self.image}"
+

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from HetmApp.models import TourPackages,MainPackageView,HomePackages,PackageCategory
+from HetmApp.models import TourPackages,MainPackageView,HomePackages,PackageCategory,Gallery
 
 
 
@@ -9,6 +9,7 @@ from HetmApp.models import TourPackages,MainPackageView,HomePackages,PackageCate
 
 admin.site.register(TourPackages)
 admin.site.register(HomePackages)
+admin.site.register(Gallery)
 
 
 # Register the MainPackageView model

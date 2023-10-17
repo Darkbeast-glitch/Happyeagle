@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect,HttpResponseRedirect
-from HetmApp.models import MainPackageView,TourPackages, HomePackages,Bookings,PackageCategory  
+from HetmApp.models import MainPackageView,TourPackages, HomePackages,Bookings,PackageCategory ,Gallery
 from django.conf import settings
 import os
 from pyairtable import Api
-from django.http import JsonResponse
+# from django.http import JsonResponse
 
 # Create your views here.
 
@@ -179,6 +179,10 @@ def SuccessPage(request):
 
 
 def GalleryPage(request):
-    context = {}
+    gallery_tile = Gallery.objects.all()
+    context = {
+        
+        'gallery_tile': gallery_tile
+    }
     return render(request, 'gallery.html', context)
 

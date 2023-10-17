@@ -101,48 +101,12 @@
 
     </div>
    
-      
+       
         <div class="gallery">
-            <img src="{% static 'hetm images\kk1.jpg' %}" alt="Beach 1" class="gallery-image">
-            <img src="{% static 'hetm images\kk2.jpg' %}" alt="Beach 2" class="gallery-image">
-            <img src="{% static 'hetm images\kk3.jpg' %}" alt="Beach 3" class="gallery-image">
-            <img src="{% static 'hetm images\kk4.jpg' %}" alt="Historical Site 1" class="gallery-image">
-            <img src="{% static 'hetm images\pg1.jpg' %}" alt="Beach 1" class="gallery-image">
-            <img src="{% static 'hetm images\pg2.jpg' %}" alt="Beach 2" class="gallery-image">
-            <img src="{% static 'hetm images\pg3.jpg' %}" alt="Beach 3" class="gallery-image">
-            <img src="{% static 'hetm images\pg4.jpg' %}" alt="Historical Site 1" class="gallery-image">
-            <img src="{% static 'hetm images\pg5.jpg' %}" alt="Historical Site 2" class="gallery-image">
-            <img src="{% static 'hetm images\pg6.jpg' %}" alt="Historical Site 3" class="gallery-image">
-            <img src="{% static 'hetm images\pg7.jpg' %}" alt="Cuisine 1" class="gallery-image">
-            <img src="{% static 'hetm images\pg8.jpg' %}" alt="Cuisine 2" class="gallery-image">
-            <img src="{% static 'hetm images\pg9.jpg' %}" alt="Cuisine 3" class="gallery-image">
-            <img src="{% static 'hetm images\pg10.jpg' %}" alt="Beach 1" class="gallery-image">
-            <img src="{% static 'hetm images\pg11.jpg' %}" alt="Beach 2" class="gallery-image">
-            <img src="{% static 'hetm images\pg12.jpg' %}" alt="Beach 3" class="gallery-image">
-            <img src="{% static 'hetm images\pg13.jpg' %}" alt="Historical Site 1" class="gallery-image">
-            <img src="{% static 'hetm images\pg14.jpg' %}" alt="Historical Site 2" class="gallery-image">
-            <img src="{% static 'hetm images\pg15.jpg' %}" alt="Historical Site 3" class="gallery-image">
-            <img src="{% static 'hetm images\pg16.jpg' %}" alt="Cuisine 1" class="gallery-image">
-            <img src="{% static 'hetm images\pg17.jpg' %}" alt="Cuisine 2" class="gallery-image">
-            <img src="{% static 'hetm images\pg18.jpg' %}" alt="Cuisine 3" class="gallery-image">
-            <img src="{% static 'hetm images\pg19.jpg' %}" alt="Beach 1" class="gallery-image">
-            <img src="{% static 'hetm images\pg20.jpg' %}" alt="Beach 2" class="gallery-image">
-            <img src="{% static 'hetm images\pg21.jpg' %}" alt="Beach 3" class="gallery-image">
-            <img src="{% static 'hetm images\pg22.jpg' %}" alt="Historical Site 1" class="gallery-image">
-            <img src="{% static 'hetm images\gp1.jpg' %}" alt="Historical Site 2" class="gallery-image">
-            <img src="{% static 'hetm images\gp2.jpg' %}" alt="Historical Site 3" class="gallery-image">
-            <img src="{% static 'hetm images\gp3.jpg' %}" alt="Cuisine 1" class="gallery-image">
-            <img src="{% static 'hetm images\gp4.jpg' %}" alt="Cuisine 2" class="gallery-image">
-            <img src="{% static 'hetm images\gp5.jpg' %}" alt="Cuisine 3" class="gallery-image">
-            <img src="{% static 'hetm images\p1.jpg' %}" alt="Beach 1" class="gallery-image">
-            <img src="{% static 'hetm images\p2.jpg' %}" alt="Beach 2" class="gallery-image">
-            <img src="{% static 'hetm images\p3.jpg' %}" alt="Beach 3" class="gallery-image">
-            <img src="{% static 'hetm images\p4.jpg' %}" alt="Historical Site 1" class="gallery-image">
-            <img src="{% static 'hetm images\p5.jpg' %}" alt="Historical Site 2" class="gallery-image">
-            <img src="{% static 'hetm images\p9.jpg' %}" alt="Historical Site 3" class="gallery-image">
-            <img src="{% static 'hetm images\p6.jpg' %}" alt="Cuisine 1" class="gallery-image">
-            <img src="{% static 'hetm images\p7.jpg' %}" alt="Cuisine 2" class="gallery-image">
-            <!-- <img src="{% static 'hetm images\p8.jpg' %}" alt="Cuisine 3" class="gallery-image"> -->
+            {% for img in gallery_tile %}
+            <img src="{{ img.image.url}}" alt="Beach 1" class="gallery-image">
+        {% endfor%}
+          
         </div>
 </main>
 </div>
