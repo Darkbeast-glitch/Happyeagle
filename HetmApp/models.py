@@ -131,13 +131,17 @@ class Gallery(models.Model):
 
 
 class TourPackages(models.Model):
-    # tour_packages = models.CharField(max_length=200, blank=True, null=True)    
-    tour_package = models.ForeignKey(
-        MainPackageView, on_delete=models.CASCADE, null=True, blank=True)
-    tour_place = models.CharField(max_length=200, blank=True, null=True)   
-    tour_price = models.CharField(max_length=200,blank=True, null=True) 
+    tour_package = models.ForeignKey(MainPackageView, on_delete=models.CASCADE, null=True, blank=True)
+    tour_place = models.CharField(max_length=200, blank=True, null=True)
+    tour_price = models.CharField(max_length=200, blank=True, null=True)
     payment_id = models.CharField(max_length=100, unique=True)
 
+    def save(self, *args, **kwargs):
+        # Set the default tour_price to the one in MainPackageView if not provided
+        if not self.tour_price and self.tour_package:
+            self.tour_price = self.tour_package.tour_price
+
+        super(TourPackages, self).save(*args, **kwargs)
    
     
     def __str__(self):
