@@ -87,7 +87,7 @@
                                 <div class="form-floating">
                                     <select class="form-select " name="tourpackages" id="packageSelect">
                                         {% for tour in tour_packs%}
-                                        <option value="{{tour.tour_place}}"> {{tour.tour_packages}} - {{request.session.currency}} {{tour.tour_price|currency:request.session.currency|intcomma}} </option>
+                                        <option value="{{tour.tour_place}}"> {{tour.tour_package.package_name}} - {{request.session.currency}} {{tour.tour_price|currency:request.session.currency|intcomma}} </option>
 
 
                                         {% endfor%}

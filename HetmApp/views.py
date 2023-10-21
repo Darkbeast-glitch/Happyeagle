@@ -73,12 +73,25 @@ def BookingView(request):
             # 'Tour Packages': tour_packages
         })
         
+          # Retrieve selected package ID from the form data
+        selected_package_name = request.POST.get('tourpackages')
+
+
+        # Get the selected package object
+        selected_package = TourPackages.objects.get(tour_place=selected_package_name)
+
+
+        # Construct the payment URL with the package's payment ID
+        payment_url = f"https://paystack.com/pay/{selected_package.payment_id}"
+
+        # Redirect the user to the payment URL after a delay
+        return render(request, 'success.html', {'payment_url': payment_url})
         # new_record.save()
         
         
 
-        # Redirect to a thank you page or any other desired page
-        return redirect('success')  # Replace 'thank_you' with the URL name of your thank you page
+        # # Redirect to a thank you page or any other desired page
+        # return redirect('success')  # Replace 'thank_you' with the URL name of your thank you page
     
     
     context = {

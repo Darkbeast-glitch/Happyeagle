@@ -292,10 +292,8 @@
                             <!-- <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Person</small> -->
                         </div>
                         <div class="text-center p-4">
-
                             <h3 class="mb-0">{{request.session.currency}} {{packs.package_price|currency:request.session.currency|intcomma}}</h3>
                             <span class="menu-title">  {% include 'IndpendentCodes/currency_forms.html'%}</span>
-
 
                             
 
@@ -319,7 +317,7 @@
                             <p>{{packs.package_short_description}}</p>
                             <div class="d-flex justify-content-center mb-2">
                                 <!-- <a href="#" class="btn btn-sm btn-secondary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-                                <a href="https://paystack.com/pay/gbvlj9t1wj" class="btn btn-sm btn-secondary px-3" style="border-radius:30px; width: max-content;">Book Now</a>
+                                <a href="{% url 'booking'%}" class="btn btn-sm btn-secondary px-3" style="border-radius:30px; width: max-content;">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -327,8 +325,9 @@
 
 
                 {% endfor%}
-                <a href="{% url 'packages'%}" class="btn btn-sm btn-primary px-3" style="border-radius:30px; width: max-content;">More Packages</a>
-
+                <div class="text-center">
+                    <a href="{% url 'packages' %}" class="btn btn-sm btn-primary px-4 py-2" style="border-radius: 20px; white-space: nowrap;">More Packages</a>
+                </div>
                 
 
                
