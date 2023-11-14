@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    # Ownapp
     'currencies',
     'HetmApp',
     'django.contrib.humanize',
@@ -64,8 +62,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'HETM.urls'
 
-
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -77,8 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'currencies.context_processors.currencies',
-                
+                'currencies.context_processors.currencies',       
             ],
         },
     },
@@ -101,18 +96,16 @@ WSGI_APPLICATION = 'HETM.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Hetm', 
+        'NAME': 'Hetm',
         'USER': 'postgres',
         'PASSWORD': '#3Ewoksss1$@',
-        'HOST': 'localhost', 
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
 
 air_key = "patJ44IN8XVtPFsYx.f067976408bb791ded3b7ecfaa5b747d509507a42dd5dfb4c08eb090c03856ac"
 AIRTABLE_API_KEY = config('AIRTABLE_API_KEY', default=air_key)
-
-
 
 
 

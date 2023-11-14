@@ -7,7 +7,7 @@ from HetmApp.models import TourPackages,MainPackageView,HomePackages,PackageCate
 
 
 
-admin.site.register(TourPackages)
+
 admin.site.register(HomePackages)
 admin.site.register(Gallery)
 
@@ -25,3 +25,15 @@ class MainPackageViewAdmin(admin.ModelAdmin):
 class PackageCategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)  # Display the name field in the list view
 # admin.site.register(MainPackageView)
+
+
+class TourPackagesAdmin(admin.ModelAdmin):
+    list_display = ('tour_package', 'tour_place', 'tour_price', 'payment_id')
+    
+    def save_model(self, request, obj, form, change):
+        # Automatically set tour_price based on MainPackageView when creating/editing TourPackages
+        if obj.tour_package and not obj.tour_price:
+            obj.tour_price = obj.tour_package.tour_price
+        super().save_model(request, obj, form, change)
+
+admin.site.register(TourPackages, TourPackagesAdmin)
