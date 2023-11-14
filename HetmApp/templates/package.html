@@ -139,9 +139,9 @@
                 <form method="get" class="form-control" action="{% url 'packages' %}" >
                     <label for="category">Select Category:</label>
                     <select name="category" id="category">
-                        <option value="" class=" form-control" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">All Categories</option>
+                        <option value="" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">All Categories</option>
                         {% for category in categories %}
-                            <option value="{{ category.id }}" {% if category.id == selected_category_id %}selected{% endif %}>
+                            <option  class="dropdown-item" value="{{ category.id }}" {% if category.id == selected_category_id %}selected{% endif %}>
                                 {{ category.name }}
                             </option>
                         {% endfor %}
