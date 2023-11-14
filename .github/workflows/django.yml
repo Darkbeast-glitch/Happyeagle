@@ -2,7 +2,7 @@ name: Happy Eagle CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "Tests" ]
   pull_request:
     branches: [ "main" ]
 
