@@ -1,0 +1,35 @@
+version: "3.11"
+   
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_USER:${DATABSE_USER}"
+      - "POSTGRES_PASSWORD:${DATABASE_PASSWORD}"
+      - "POSTGRES_DB:${DATABASE_NAME}"
+      - "POSTGRES_HOST:${DATABASE_HOST}"
+
+    ports:
+      -"5432:5432"
+  web:
+    build: .
+    command: > 
+      bash -c "
+      python manage.py makemigrations
+      && python manage.py migrate
+      && python manage.py runserver 0.0.0.0:8000
+      
+      "
+   
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db

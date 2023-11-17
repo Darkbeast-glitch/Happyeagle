@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'currencies',
     'HetmApp',
     'django.contrib.humanize',
+    'coverage'
 
 
 ]
@@ -98,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'Hetm',
         'USER': 'postgres',
-        'PASSWORD': '#3Ewoksss1$@',
+        'PASSWORD': '#3Ewoksss',
         'HOST': 'localhost',
         'PORT': '5432',
     }

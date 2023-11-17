@@ -3,6 +3,12 @@ from HetmApp.models import MainPackageView, TourPackages, HomePackages, Bookings
 from django.conf import settings
 import os
 from pyairtable import Api
+from django.core.paginator import (
+    Paginator,
+    EmptyPage,
+    PageNotAnInteger,
+)
+
 # from django.http import JsonResponse
 
 # Create your views here.
@@ -174,10 +180,33 @@ def SuccessPage(request):
     return render(request, 'success.html', context)
 
 
+
+
+
+
 def GalleryPage(request):
     gallery_tile = Gallery.objects.all()
+    # default to first page
+    default_page = 1
+    page = request.GET.get('page', default_page)
+    
+    # Paginate items
+    items_per_page = 10
+    paginator = Paginator(gallery_tile, items_per_page)
+    
+    
+    try:
+        items_page = paginator.page(page)
+    except PageNotAnInteger:
+        items_page = paginator.page(default_page)
+    except EmptyPage:
+        items_page = paginator.page(paginator.num_pages)
+
     context = {
 
-        'gallery_tile': gallery_tile
+        'gallery_tile': gallery_tile,
+        "items_page":items_page,
     }
+    
+
     return render(request, 'gallery.html', context)
