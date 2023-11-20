@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from HetmApp.models import MainPackageView, TourPackages, HomePackages, Bookings, PackageCategory, Gallery
 from django.conf import settings
+from django.contrib import messages #import messages
+from django.contrib import messages #import messages
+
 import os
 from pyairtable import Api
 from django.core.paginator import (
@@ -102,6 +105,51 @@ def BookingView(request):
     return render(request, 'booking.html', context)
 
 
+# Contact us data
+
+
+def ContactView(request):
+    
+    if request.method == 'POST':
+        Name = request.POST.get('full_name')
+        Email = request.POST.get('email')
+        Subject = request.POST.get('subject')
+        Message = request.POST.get('message')
+        
+        
+        
+         # Initialize the Airtable API using your API key
+        api = Api(os.environ['AIRTABLE_API_KEY'])
+
+        # Specify y our base ID and table ID
+        base_id = 'appyuKokIsUjlynJ6'
+        table_id = 'tbl0LjyDuHeassFWy'
+
+        # Access the table
+        table = api.table(base_id, table_id)
+
+        # Create a new record in the table with the form data
+        new_record = table.create({
+         'Name':Name,
+         'Email': Email,
+         'Subject': Subject,
+         'Message':Message
+         
+        })
+        messages.success(request, "Heyy!!!,😃 We have received your message, we shall revert soon" )
+
+        
+        
+        
+        
+
+
+    context = {}
+
+    return render(request, 'contact.html', context)
+
+
+
 # package view
 
 
@@ -150,13 +198,6 @@ def AboutView(request):
     context = {}
 
     return render(request, 'about.html', context)
-
-
-def ContactView(request):
-
-    context = {}
-
-    return render(request, 'contact.html', context)
 
 
 # SELECT CURRENCY VIEW

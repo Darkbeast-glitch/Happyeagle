@@ -17,11 +17,13 @@ services:
     build: .
     command: > 
       bash -c "
+      export AIRTABLE_API_KEY=patJ44IN8XVtPFsYx.f067976408bb791ded3b7ecfaa5b747d509507a42dd5dfb4c08eb090c03856ac
+      &&
       python manage.py makemigrations
       && python manage.py migrate
       && python manage.py runserver 0.0.0.0:8000
       
-      "
+      "con
    
     volumes:
       - .:/code
