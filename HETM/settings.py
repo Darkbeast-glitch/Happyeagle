@@ -14,7 +14,6 @@ import os
 from pathlib import Path
 from decouple import config
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-x+$$jy!zzqz-is8i*0*ul*wpu54*zj&7-3vja^(rw6$#(64wi2'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -74,7 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'currencies.context_processors.currencies',       
+                'currencies.context_processors.currencies',
             ],
         },
     },
@@ -97,17 +96,16 @@ WSGI_APPLICATION = 'HETM.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Hetm',
-        'USER': 'postgres',
-        'PASSWORD': '#3Ewoksss',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': "#3Ewoksss",
+        'HOST': config("DATABASE_HOST"),
+        'PORT': 5432
     }
 }
 
 air_key = "patJ44IN8XVtPFsYx.f067976408bb791ded3b7ecfaa5b747d509507a42dd5dfb4c08eb090c03856ac"
 AIRTABLE_API_KEY = config('AIRTABLE_API_KEY', default=air_key)
-
 
 
 # Password validation
@@ -125,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },  
+    },
 ]
 
 
@@ -140,14 +138,14 @@ USE_I18N = True
 
 USE_TZ = True
 
-DEFAULT_CURRENCY = 'USD'    
+DEFAULT_CURRENCY = 'USD'
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles' # For Deployment
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # For Deployment
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'mediafiles'
