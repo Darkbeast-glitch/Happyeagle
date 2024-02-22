@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect
 from HetmApp.models import MainPackageView, TourPackages, HomePackages, Bookings, PackageCategory, Gallery
 from django.conf import settings
-from django.contrib import messages #import messages
-from django.contrib import messages #import messages
+from django.contrib import messages  # import messages
+# from django.contrib import messages #import messages
 
 import os
 from pyairtable import Api
@@ -77,8 +77,7 @@ def BookingView(request):
             'Email address': email,
             # 'Tour Packages': tour_packages
         })
-        
-        
+
         # get the tour package name
         selected_package_name = request.POST.get('tourpackages')
 
@@ -96,7 +95,6 @@ def BookingView(request):
         # # Redirect to a thank you page or any other desired page
         # return redirect('success')  # Replace 'thank_you' with the URL name of your thank you page
 
-        
     context = {
         'tour_packs': tour_packs,
 
@@ -109,16 +107,14 @@ def BookingView(request):
 
 
 def ContactView(request):
-    
+
     if request.method == 'POST':
         Name = request.POST.get('full_name')
         Email = request.POST.get('email')
         Subject = request.POST.get('subject')
         Message = request.POST.get('message')
-        
-        
-        
-         # Initialize the Airtable API using your API key
+
+        # Initialize the Airtable API using your API key
         api = Api(os.environ['AIRTABLE_API_KEY'])
 
         # Specify y our base ID and table ID
@@ -130,24 +126,18 @@ def ContactView(request):
 
         # Create a new record in the table with the form data
         new_record = table.create({
-         'Name':Name,
-         'Email': Email,
-         'Subject': Subject,
-         'Message':Message
-         
+            'Name': Name,
+            'Email': Email,
+            'Subject': Subject,
+            'Message': Message
+
         })
-        messages.success(request, "Heyy!!!,😃 We have received your message, we shall revert soon" )
-
-        
-        
-        
-        
-
+        messages.success(
+            request, "Heyy!!!,😃 We have received your message, we shall revert soon ")
 
     context = {}
 
     return render(request, 'contact.html', context)
-
 
 
 # package view
@@ -221,21 +211,16 @@ def SuccessPage(request):
     return render(request, 'success.html', context)
 
 
-
-
-
-
 def GalleryPage(request):
     gallery_tile = Gallery.objects.all()
     # default to first page
     default_page = 1
     page = request.GET.get('page', default_page)
-    
+
     # Paginate items
     items_per_page = 10
     paginator = Paginator(gallery_tile, items_per_page)
-    
-    
+
     try:
         items_page = paginator.page(page)
     except PageNotAnInteger:
@@ -246,8 +231,7 @@ def GalleryPage(request):
     context = {
 
         'gallery_tile': gallery_tile,
-        "items_page":items_page,
+        "items_page": items_page,
     }
-    
 
     return render(request, 'gallery.html', context)
