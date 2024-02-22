@@ -27,11 +27,11 @@
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
+                    <!-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a> -->
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <!-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a> -->
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                    <!-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a> -->
                 </div>
             </div>
         </div>
@@ -57,38 +57,31 @@
                     <a href="{% url 'about'%}" class="nav-item nav-link">About</a>
                     <a href="{% url 'packages'%}" class="nav-item nav-link">Packages</a>
                     <a href="{% url 'gallery'%}" class="nav-item nav-link">Gallery</a>
-
-                    <!-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="destination.html" class="dropdown-item">Destination</a>
-                            <a href="booking.html" class="dropdown-item">Booking</a>
-                            <a href="team.html" class="dropdown-item">Travel Guides</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="404.html" class="dropdown-item">404 Page</a>
-                        </div>
-                    </div> -->
                     <a href="{% url 'contact'%}" class="nav-item nav-link">Contact</a>
                 </div>
                 <a href="{% url 'booking'%}" class="btn btn-secondary rounded-pill py-2 px-4">Book Now</a>
             </div>
         </nav>
 
-        <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+        <div class="container-fluid py-5 mb-5 hero-header">
+            <video playsinline autoplay muted loop id="myVideo">
+                <source src="{% static 'img/ghana.mp4'%}" type="video/mp4">
+                <!-- Display an image as a fallback if the video can't be played -->
+                Your browser does not support HTML5 video.
+            </video>
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown text-shadow-drop-top">Happy Eagle Tourism Management</h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">Enjoy your vacation with us</p>
-                            <!-- <div class="position-relative w-75 mx-auto animated slideInDown">
-                                <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Cape Coast">
-                                <button type="button" class="btn btn-secondary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
-                            </div> -->
+                        <h1 class="display-3 text-white mb-3 animated slideInDown" style="position: relative; z-index: 1; font-family: 'Raleway', sans-serif;">Happy Eagle Tourism Management</h1>
+<p class="fs-4 text-white mb-4 animated slideInDown" style="position: relative; z-index: 1; font-family: 'Raleway', sans-serif;">Enjoy your vacation with us</p>
+                        <!-- <div class="position-relative w-75 mx-auto animated slideInDown">
+                            <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Cape Coast">
+                            <button type="button" class="btn btn-secondary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     <!-- Navbar & Hero End -->
 
 
@@ -292,10 +285,8 @@
                             <!-- <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>2 Person</small> -->
                         </div>
                         <div class="text-center p-4">
-
                             <h3 class="mb-0">{{request.session.currency}} {{packs.package_price|currency:request.session.currency|intcomma}}</h3>
                             <span class="menu-title">  {% include 'IndpendentCodes/currency_forms.html'%}</span>
-
 
                             
 
@@ -319,7 +310,7 @@
                             <p>{{packs.package_short_description}}</p>
                             <div class="d-flex justify-content-center mb-2">
                                 <!-- <a href="#" class="btn btn-sm btn-secondary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-                                <a href="https://paystack.com/pay/gbvlj9t1wj" class="btn btn-sm btn-secondary px-3" style="border-radius:30px; width: max-content;">Book Now</a>
+                                <a href="{% url 'booking'%}" class="btn btn-sm btn-secondary px-3" style="border-radius:30px; width: max-content;">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -327,8 +318,9 @@
 
 
                 {% endfor%}
-                <a href="{% url 'packages'%}" class="btn btn-sm btn-primary px-3" style="border-radius:30px; width: max-content;">More Packages</a>
-
+                <div class="text-center">
+                    <a href="{% url 'packages' %}" class="btn btn-sm btn-primary px-4 py-2" style="border-radius: 20px; white-space: nowrap;">More Packages</a>
+                </div>
                 
 
                
@@ -359,7 +351,7 @@
                         <h5 class="mt-4">Choose A Destination</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
+                        <p class="mb-0">Embark on a journey of discovery and choose your next adventure from our curated selection of breathtaking destinations. Where will your wanderlust take you?</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -370,7 +362,7 @@
                         <h5 class="mt-4">Pay Online</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
+                        <p class="mb-0">Secure your next adventure with ease by using our seamless online payment system. A world of exploration awaits at the click of a button.Don't worry we are safe.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.5s">
@@ -381,7 +373,7 @@
                         <h5 class="mt-4">Tour with Us</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
+                        <p class="mb-0">Experience the journey of a lifetime with us, where every tour is crafted to offer unforgettable moments and unparalleled destinations. Let's explore the world together.</p>
                     </div>
                 </div>
             </div>

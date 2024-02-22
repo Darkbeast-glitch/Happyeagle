@@ -14,7 +14,6 @@ import os
 from pathlib import Path
 from decouple import config
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-x+$$jy!zzqz-is8i*0*ul*wpu54*zj&7-3vja^(rw6$#(64wi2'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,11 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    # Ownapp
     'currencies',
     'HetmApp',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    'coverage'
+
+
 ]
 
 MIDDLEWARE = [
@@ -62,8 +62,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'HETM.urls'
 
-
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -76,7 +74,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'currencies.context_processors.currencies',
-                
             ],
         },
     },
@@ -99,18 +96,16 @@ WSGI_APPLICATION = 'HETM.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Hetm', 
-        'USER': 'postgres',
-        'PASSWORD': '#3Ewoksss1$@',
-        'HOST': 'localhost', 
-        'PORT': '5432',
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': "#3Ewoksss",
+        'HOST': config("DATABASE_HOST"),
+        'PORT': 5432
     }
 }
 
-# AIRTABLE_API_KEY = config('AIRTABLE_API_KEY')
-
-
-
+air_key = "patJ44IN8XVtPFsYx.f067976408bb791ded3b7ecfaa5b747d509507a42dd5dfb4c08eb090c03856ac"
+AIRTABLE_API_KEY = config('AIRTABLE_API_KEY', default=air_key)
 
 
 # Password validation
@@ -143,17 +138,34 @@ USE_I18N = True
 
 USE_TZ = True
 
-DEFAULT_CURRENCY = 'USD'    
+DEFAULT_CURRENCY = 'USD'
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles' # For Deployment
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # For Deployment
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'mediafiles'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# AWS S3 Configuration
+# AWS_ACCESS_KEY_ID = ''
+# AWS_SECRET_ACCESS_KEY = ''
+# AWS_STORAGE_BUCKET_NAME = ''
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'CacheControl': 'max-age=86400',
+# }
+# AWS_LOCATION = 'static'
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'mysite/static'),
+# ]
+# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

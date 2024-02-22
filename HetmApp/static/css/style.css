@@ -1,7 +1,7 @@
 /********** Template CSS **********/
 :root {
-    --primary: #0B6623; 
-    --secondary:#FE8800;
+    --primary: #0B6623;
+    --secondary: #FE8800;
     --light: #F5F5F5;
     --dark: #14141F;
 }
@@ -22,6 +22,9 @@
     z-index: 99;
 }
 
+/********** Fonts CSS **********/
+
+
 
 /*** Spinner ***/
 #spinner {
@@ -36,7 +39,6 @@
     visibility: visible;
     opacity: 1;
 }
-
 
 
 /*** Button ***/
@@ -171,12 +173,74 @@
 }
 
 
-/*** Hero Header ***/
-.hero-header {
-    background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)), url(../img/bg-hero.jpg);
+/*** Hero1 Header ***/
+
+.hero1-about {
+    background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)), url(../img/botifalls.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+
+.hero1-packages {
+    background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)), url(../img/Larabanga\ Mosque.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero1-contanct {
+    background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)), url(../img/de);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero1-gallery {
+    background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)), url(../img/falls.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.hero1-booking {
+    background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7)), url(../img/elmina\ castle.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/*** Hero Header ***/
+.hero-header {
+    position: relative;
+}
+
+#myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Play the video behind the content */
+}
+
+.hero-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(20, 20, 31, .7), rgba(20, 20, 31, .7));
+    z-index: 0; /* Higher than the video */
+}
+
+h1, p {
+    position: relative;
+    z-index: 1;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -189,7 +253,7 @@
     position: relative;
     display: inline-block;
     text-transform: uppercase;
-    }
+}
 
 .section-title::before {
     position: absolute;
@@ -446,11 +510,16 @@
 
 
 
-/* HENRY CODES */
+.hero-header {
+    position: relative;
+}
 
-.text-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Optional: Centers vertically as well, adjusts the container's height according to the viewport height */
+#myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Play the video behind the content */
 }

@@ -54,18 +54,18 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@example.com</small>
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, Accra, Ghana</small>
+                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i><a href="tel:+233500159892">+233500159892</a></small>
+                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>info@hetm.com</small>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a>
+                    <!-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-twitter fw-normal"></i></a> -->
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <!-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a> -->
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                    <!-- <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a> -->
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
         </div>
     </nav>
 
-        <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+        <div class="container-fluid bg-primary py-5 mb-5 hero1-packages">
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
@@ -188,7 +188,7 @@
                             <p>{{packs.package_short_description}}</p>
                             <div class="d-flex justify-content-center mb-2">
                                 <!-- <a href="#" class="btn btn-sm btn-secondary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-                                <a href="https://paystack.com/pay/gbvlj9t1wj" class="btn btn-sm btn-secondary px-3" style="border-radius:30px; width: max-content;">Book Now</a>
+                                <a href="{% url 'booking'%}" class="btn btn-sm btn-secondary px-3" style="border-radius:30px; width: max-content;">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -234,7 +234,7 @@
                         <h5 class="mt-4">Choose A Destination</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
+                        <p class="mb-0">Embark on a journey of discovery and choose your next adventure from our curated selection of breathtaking destinations. Where will your wanderlust take you?</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.3s">
@@ -245,7 +245,7 @@
                         <h5 class="mt-4">Pay Online</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
+                        <p class="mb-0">Secure your next adventure with ease by using our seamless online payment system. A world of exploration awaits at the click of a button.Don't worry we are safe</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.5s">
@@ -256,7 +256,7 @@
                         <h5 class="mt-4">Tour with Us</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
-                        <p class="mb-0">Tempor erat elitr rebum clita dolor diam ipsum sit diam amet diam eos erat ipsum et lorem et sit sed stet lorem sit</p>
+                        <p class="mb-0">Experience the journey of a lifetime with us, where every tour is crafted to offer unforgettable moments and unparalleled destinations. Let's explore the world together.</p>
                     </div>
                 </div>
             </div>
@@ -271,7 +271,7 @@
 
 
     <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <!-- <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="text-center">
                 <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
@@ -304,7 +304,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     </div>
 
@@ -312,7 +312,7 @@
 
 
     <!-- Process Start -->
-    <div class="container-xxl py-5">
+    <!-- <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Process</h6>
@@ -354,7 +354,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Process Start -->
         
 

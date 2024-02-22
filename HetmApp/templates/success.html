@@ -22,7 +22,7 @@
     // Function to redirect after 3 seconds
     function redirectToPaymentPage() {
         setTimeout(function () {
-            window.location.href = "https://paystack.com/pay/1f7h8bg44u";  // Replace with the URL of your payment page
+            window.location.href = "{{ payment_url }}";  // Replace with the URL of your payment page
         }, 3000);  // 3 seconds
     }
 

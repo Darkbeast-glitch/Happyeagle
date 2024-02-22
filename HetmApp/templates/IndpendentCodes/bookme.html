@@ -20,6 +20,12 @@
                         Our booking is designed with one goal in mind: </p>
                     <p class="mb-4">to make your travel dreams a reality. It's where your journey begins, where you turn your itch for travel into concrete plans, and where you take that first step towards unforgettable experiences.
                         Unlock Your Next Adventure: Book Now and Wander Where Your Heart Desires!</p>
+
+                        <div class="changecurrency">
+                            <h6 style="color: rgb(8, 205, 57);">Change Currency:</h6>
+                        <span class="menu-title">  {% include 'IndpendentCodes/currency_forms.html'%}</span>
+
+                        </div>
                     <!-- <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a> -->
                 </div>
                 <div class="col-md-6">
@@ -87,7 +93,7 @@
                                 <div class="form-floating">
                                     <select class="form-select " name="tourpackages" id="packageSelect">
                                         {% for tour in tour_packs%}
-                                        <option value="{{tour.tour_place}}"> {{tour.tour_packages}} - {{request.session.currency}} {{tour.tour_price|currency:request.session.currency|intcomma}} </option>
+                                        <option value="{{tour.tour_place}}"> {{tour.tour_package.package_name}} - {{request.session.currency}} {{tour.tour_price|currency:request.session.currency|intcomma}} </option>
 
 
                                         {% endfor%}

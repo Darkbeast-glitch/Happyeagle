@@ -6,19 +6,7 @@ from currencies.models import Currency
 
 
 
-class TourPackages(models.Model):
-    tour_packages = models.CharField(max_length=200, blank=True, null=True)    
-    tour_place = models.CharField(max_length=200, blank=True, null=True)   
-    tour_price = models.CharField(max_length=200,blank=True, null=True) 
-    
-    def __str__(self):
-        return self.tour_packages
-    
-    class Meta:
-        verbose_name = 'tour_package'
-        verbose_name_plural = 'tour_packages'
-    
-    
+
 
 class HomePackages(models.Model):
     image = models.ImageField(upload_to="images/")
@@ -124,4 +112,44 @@ class Bookings(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+    
+    
+    
+    
+class Gallery(models.Model):
+        image = models.ImageField(upload_to="images/gallaries")
+        
+        class Meta:
+            verbose_name = 'Gallery'
+            verbose_name_plural = 'Galleries'
+            
+   
+    
+        def __str__(self):
+            return f"{self.image}"
+
+
+
+class TourPackages(models.Model):
+    tour_package = models.ForeignKey(MainPackageView, on_delete=models.CASCADE, null=True, blank=True)
+    tour_place = models.CharField(max_length=200, blank=True, null=True)
+    tour_price = models.CharField(max_length=200, blank=True, null=True)
+    payment_id = models.CharField(max_length=100, unique=True)
+
+    def save(self, *args, **kwargs):
+        # Set the default tour_price to the one in MainPackageView if not provided
+        if not self.tour_price and self.tour_package:
+            self.tour_price = self.tour_package.tour_price
+
+        super(TourPackages, self).save(*args, **kwargs)
+   
+    
+    def __str__(self):
+               return self.tour_package.package_name  # Assuming 'name' is a field in MainPackageView model
+
+    
+    class Meta:
+        verbose_name = 'tour_package'
+        verbose_name_plural = 'tour_packages'
+    
     

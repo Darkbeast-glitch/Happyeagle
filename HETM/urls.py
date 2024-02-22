@@ -26,6 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('HetmApp.urls')),
     path('currencies/', include('currencies.urls')),
+    path('api-auth/', include('rest_framework.urls'))
+
     
 
     
