@@ -12,8 +12,9 @@
         </p>
         <form action="" id="paymentForm">
           <p class="lead">
-            <button class="btn btn-primary  btn-sm" type="submit"  onclick="payWithPaystack()">Proceed to Payment <img src="{% static 'img/hand.png' %}" style="width:20px; color: white;" alt=""></button>
-        </p>
+            <!-- <button class="btn btn-primary  btn-sm" type="submit"  onclick="payWithPaystack()">Proceed to Payment <img src="{% static 'img/hand.png' %}" style="width:20px; color: white;" alt=""></button> -->
+            <button class="btn btn-primary btn-sm" type="submit" onclick="payWithPaystack(event)">Proceed to Payment <img src="{% static 'img/hand.png' %}" style="width:20px; color: white;" alt=""></button>
+          </p>
         </form>
     </div>
 </div>
@@ -26,6 +27,11 @@
         }, 3000);  // 3 seconds
     }
 
+    function payWithPaystack(event) {
+    event.preventDefault(); // Prevent the default form submission
+    var payment_url = "{{payment_url}}"; // Replace with your payment URL
+    window.location.href = payment_url; // Redirect to the payment URL
+}
     // Call the function to initiate the redirection
     redirectToPaymentPage();
 </script>
